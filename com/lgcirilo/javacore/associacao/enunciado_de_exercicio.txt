@@ -1,0 +1,14 @@
+Crie um sistema que gerencia seminarios
+Devera cadastrar os seminarios, os alunos, os professores e um local
+Um aluno podera estar apenas em um seminario
+Um seminario podera ter nenhum ou varios alunos
+Um prodessor podera ministar um ou varios seminarios
+Um seminario so podera ter um professor
+Um seminario devera ter um local
+
+atributos (fora os de associacao):
+
+seminario: titulo
+aluno: nome e idade
+Professor: nome e especialidade
+local: rua e bairro

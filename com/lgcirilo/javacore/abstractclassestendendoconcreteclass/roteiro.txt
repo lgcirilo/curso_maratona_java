@@ -1,0 +1,5 @@
+0 - criar enum Hair. valores serao HAS_LITTLE e HAS_MUCH. serah usada nas classes ape e human
+0.1 - criar enum Language. valores serao PORTUGUESE, ENGLISH, FRENCH, SPANISH, RUSSIAN
+1 - criar uma classe concreta (Conc)
+2 - criar uma classes filha de Conc (ConcChild)
+3 - compilar a classe filha
