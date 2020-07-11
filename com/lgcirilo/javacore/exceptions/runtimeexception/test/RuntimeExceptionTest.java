@@ -4,10 +4,14 @@ package com.lgcirilo.javacore.exceptions.runtimeexception.test;
 public class RuntimeExceptionTest {
     public static void main(String[] args) {
         try {
-            int a = 10 / 0;
-        } catch (ArithmeticException e) {
-            e.printStackTrace();        
+            divisao(10, 0);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
         }
-        System.out.println("pegou o erro no bloco try/catch e continuou a execucao");
+    }
+
+    private static void divisao(int num1, int num2) {
+        int result = num1 / num2;
+        System.out.println(result);
     }
 }
