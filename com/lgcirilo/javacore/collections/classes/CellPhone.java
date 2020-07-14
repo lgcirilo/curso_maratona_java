@@ -1,6 +1,6 @@
-package com.lgcirilo.javacore.colecoes.classes;
+package com.lgcirilo.javacore.collections.classes;
 
-public class Cellphone {
+public class CellPhone implements Comparable<CellPhone> {
     private String nome;
     private String IMEI;
 
@@ -9,7 +9,7 @@ public class Cellphone {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cellphone cellphone = (Cellphone) o;
+        CellPhone cellphone = (CellPhone) o;
 
         return IMEI.equals(cellphone.IMEI);
     }
@@ -29,7 +29,7 @@ public class Cellphone {
      */
 
 
-    public Cellphone(String nome, String IMEI) {
+    public CellPhone(String nome, String IMEI) {
         this.nome = nome;
         this.IMEI = IMEI;
     }
@@ -47,7 +47,20 @@ public class Cellphone {
         return IMEI;
     }
 
+    @Override
+    public String toString() {
+        return "Cellphone{" +
+                "nome='" + nome + '\'' +
+                ", IMEI='" + IMEI + '\'' +
+                '}';
+    }
+
     public void setIMEI(String IMEI) {
         this.IMEI = IMEI;
+    }
+
+    @Override
+    public int compareTo(CellPhone otherCell) {
+        return this.IMEI.compareTo(otherCell.IMEI);
     }
 }

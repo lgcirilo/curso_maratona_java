@@ -1,6 +1,6 @@
-package com.lgcirilo.javacore.colecoes.test;
+package com.lgcirilo.javacore.collections.test;
 
-import com.lgcirilo.javacore.colecoes.classes.Cellphone;
+import com.lgcirilo.javacore.collections.classes.CellPhone;
 
 public class EqualsTest {
     public static void main(String[] args) {
@@ -13,8 +13,8 @@ public class EqualsTest {
         System.out.println(num1 == num2);
         System.out.println(num1.equals(num2));
 
-        Cellphone c1 = new Cellphone("Iphone", "123456");
-        Cellphone c2 =new Cellphone ("Iphone", "123456");
+        CellPhone c1 = new CellPhone("Iphone", "123456");
+        CellPhone c2 =new CellPhone("Iphone", "123456");
         System.out.println("c1 equals c2? "+ c1.equals(c2));
     }
 }
