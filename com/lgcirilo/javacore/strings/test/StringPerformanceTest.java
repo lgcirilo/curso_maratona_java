@@ -33,7 +33,7 @@ public class StringPerformanceTest {
         return sb.toString();
     }
 
-    /* Use String buffer when you're worried about synchronization */
+    /* Use String buffer when you're worried about synchronization(concurrency? review lesson) */
     private static String concatStringWithStringBuffer(int size) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < size; i++) {
