@@ -1,5 +1,6 @@
 package com.lgcirilo.javacore.collections.test;
 
+import com.lgcirilo.javacore.collections.classes.ByNameComparator;
 import com.lgcirilo.javacore.collections.classes.ByPriceComparator;
 import com.lgcirilo.javacore.collections.classes.Produto;
 
@@ -15,6 +16,11 @@ public class SortProdutoTest {
         produtos.add(new Produto("879", "teclado razer", 1000.0));
         produtos.add(new Produto("012", "galaxy s7", 3250.5));
         Collections.sort(produtos, new ByPriceComparator());
+        for (Produto produto : produtos) {
+            System.out.println(produto);
+        }
+        System.out.println("-------------------------");
+        Collections.sort(produtos, new ByNameComparator());
         for (Produto produto : produtos) {
             System.out.println(produto);
         }
