@@ -1,4 +1,4 @@
-package com.lgcirilo.javacore.exceptions.checkedexceptions.customexceptions;
+package com.lgcirilo.javacore.exceptions.checkedexception.customexcepitons;
 
 public class MyCustomException extends Exception {
     public MyCustomException() {
