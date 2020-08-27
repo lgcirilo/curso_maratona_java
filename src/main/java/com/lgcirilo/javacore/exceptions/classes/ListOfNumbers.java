@@ -45,7 +45,7 @@ public class ListOfNumbers {
 
         /**
          * The code above is a shorter version of this commmented code. Note the absence of a
-         * finally block to hanlde resource releasing. This is accomplished automatically by the
+         * finally block to handle resource releasing. This is accomplished automatically by the
          * try-with-resources clause
          *
          * PrintWriter out = null;
