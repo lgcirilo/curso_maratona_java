@@ -1,9 +1,6 @@
 package com.lgcirilo.javacore.jdbc.conn;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ConexaoFactory {
     // principais interfaces do java.sql: Connection, Statement, ResultSet
@@ -36,6 +33,15 @@ public class ConexaoFactory {
             if (statement != null) {
                 statement.close();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void close(Connection connection, Statement statement, ResultSet resultSet) {
+        close(connection, statement);
+        try {
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

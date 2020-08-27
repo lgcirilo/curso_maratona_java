@@ -4,8 +4,11 @@ import com.lgcirilo.javacore.jdbc.classes.Comprador;
 import com.lgcirilo.javacore.jdbc.conn.ConexaoFactory;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompradorDB implements ICompradorDB{
     @Override
@@ -57,4 +60,64 @@ public class CompradorDB implements ICompradorDB{
             e.printStackTrace();
         }
     }
+
+    // TODO - methods selectaAll and findByName share most of their code. Create a method to encapsulate shared code
+    public List<Comprador> selectAll() {
+        String sql = "SELECT id, nome, cpf FROM agencia.comprador;";
+        Connection connection = ConexaoFactory.getConexao();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                compradorList.add(new Comprador(resultSet.getInt("id"),
+                        resultSet.getString("nome"),
+                        resultSet.getString("cpf")));
+            }
+//           ResultSet.get* can use the column index as a parameter. The above while loop can be written as follows:
+//            while (resultSet.next()) {
+//                System.out.println(resultSet.getInt(1));
+//                System.out.println(resultSet.getString(2));
+//                System.out.println(resultSet.getString(3));
+//            }
+//            Note that column indexes start at 1, not 0.
+            ConexaoFactory.close(connection, statement, resultSet);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public List<Comprador> findByName(String name) {
+        String sql = "SELECT id, nome, cpf FROM agencia.comprador WHERE nome like '%" + name +"%';";
+        Connection connection = ConexaoFactory.getConexao();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                compradorList.add(new Comprador(resultSet.getInt("id"),
+                        resultSet.getString("nome"),
+                        resultSet.getString("cpf")));
+            }
+            ConexaoFactory.close(connection, statement, resultSet);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

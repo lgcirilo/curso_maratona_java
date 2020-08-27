@@ -20,6 +20,15 @@ public class Comprador {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return "Comprador{" +
+                "id=" + id +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

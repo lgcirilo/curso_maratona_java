@@ -3,11 +3,15 @@ package com.lgcirilo.javacore.jdbc.test;
 import com.lgcirilo.javacore.jdbc.classes.Comprador;
 import com.lgcirilo.javacore.jdbc.db.CompradorDB;
 
+import java.util.List;
+
 public class TesteConexao {
     public static void main(String[] args) {
 //        inserir();
 //        deletar();
-        atualizar();
+//        atualizar();
+        List<Comprador> compradorList = buscarPorNome("john");
+        System.out.println(compradorList);
     }
 
     private static void inserir() {
@@ -27,5 +31,13 @@ public class TesteConexao {
         Comprador comprador = new Comprador(25, "987.654.321-10", "john");
         CompradorDB compradorDB = new CompradorDB();
         compradorDB.update(comprador);
+    }
+
+    private static List<Comprador> selecionarTudo() {
+        return new CompradorDB().selectAll();
+    }
+
+    private static List<Comprador> buscarPorNome(String nome) {
+        return new CompradorDB().findByName(nome);
     }
 }
