@@ -3,6 +3,7 @@ package com.lgcirilo.javacore.jdbc.test;
 import com.lgcirilo.javacore.jdbc.classes.Comprador;
 import com.lgcirilo.javacore.jdbc.db.CompradorDB;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class TesteConexao {
@@ -10,8 +11,11 @@ public class TesteConexao {
 //        inserir();
 //        deletar();
 //        atualizar();
-        List<Comprador> compradorList = buscarPorNome("john");
-        System.out.println(compradorList);
+//        List<Comprador> compradorList = buscarPorNome("john");
+//        System.out.println(compradorList);
+//        selecionaMetaDados();
+//        checarStatusDoDriver();
+        testeTypeScroll();
     }
 
     private static void inserir() {
@@ -39,5 +43,17 @@ public class TesteConexao {
 
     private static List<Comprador> buscarPorNome(String nome) {
         return new CompradorDB().findByName(nome);
+    }
+
+    private static void selecionaMetaDados() {
+        new CompradorDB().selectMetaData();
+    }
+
+    private static void checarStatusDoDriver() {
+        new CompradorDB().checkDriverStatus();
+    }
+
+    private static void testeTypeScroll() {
+        new CompradorDB().testTypeScroll();
     }
 }
